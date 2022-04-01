@@ -2,6 +2,7 @@
 
 
 Output on 2022-04-01:
+
 ![](documentation/output--2022-04-01.png)
 
 
