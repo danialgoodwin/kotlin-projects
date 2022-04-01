@@ -1,3 +1,8 @@
+/**
+ * Features:
+ * - When there is no input, press 'start' to add 30 seconds and turn on, if needed.
+ * - Clock
+ */
 class Microwave {
 
     var currentInput = ""
@@ -19,32 +24,40 @@ class Microwave {
 
     private fun pressNumber(value: Int) {
         when (status) {
-            Status.WAITING -> currentInput += value
-            Status.SET_CLOCK -> currentInput += value
+            Status.WAITING -> {
+                currentInput += value
+                currentDisplay = currentInput
+            }
+            Status.SET_CLOCK -> {
+                currentInput += value
+            }
             Status.COOKING -> { /* Do nothing */ }
         }
     }
 
     fun pressStart() {
         when (status) {
-            Status.WAITING -> TODO()
-            Status.COOKING -> TODO()
-            Status.SET_CLOCK -> TODO()
+            Status.WAITING -> {
+                timeLeft += 30
+                status = Status.COOKING
+            }
+            Status.COOKING -> { timeLeft += 30 }
+            Status.SET_CLOCK -> { /* Do nothing */ }
         }
     }
     fun pressStop() {
         when (status) {
-            Status.WAITING -> TODO()
-            Status.COOKING -> TODO()
-            Status.SET_CLOCK -> TODO()
-        }
-    }
-
-    fun pressQuickReheat30s() {
-        when (status) {
-            Status.WAITING -> TODO()
-            Status.COOKING -> TODO()
-            Status.SET_CLOCK -> TODO()
+            Status.WAITING -> {
+                currentInput += ""
+                currentDisplay = currentInput
+            }
+            Status.COOKING -> {
+                status = Status.WAITING
+            }
+            Status.SET_CLOCK -> {
+                status = Status.WAITING
+                TODO("Cancel clock mode")
+            }
         }
     }
 

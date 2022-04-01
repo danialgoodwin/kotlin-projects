@@ -5,9 +5,9 @@ fun main(args: Array<String>) {
 fun runMicrowaveApp(hardware: MicrowaveHardware) {
     val mw = Microwave()
     while (true) {
-        println("Microwave status: on, door: ${hardware.doorStatus()}")
-        println("Display: ${mw.currentDisplay}")
-        println("Options: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, start, stop, reheat, clock")
+        println("\nDisplay: ${mw.currentDisplay} (status: ${mw.status}, door: ${hardware.doorStatus()})")
+        println("Options: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, start, stop, clock")
+        print("Input: ")
         when(readln()) {
             "q", "exit" -> return
             "0" -> mw.press0()
@@ -22,7 +22,6 @@ fun runMicrowaveApp(hardware: MicrowaveHardware) {
             "9" -> mw.press9()
             "start" -> mw.pressStart()
             "stop" -> mw.pressStop()
-            "reheat" -> mw.pressQuickReheat30s()
             "clock" -> mw.pressClock()
             else -> println("Unknown input. Please try again.")
         }
