@@ -1,7 +1,16 @@
 # seven-segment-display
 
 
-Output on 2022-04-01:
+Version 2 (2022-04-01):
+```
+> println(mockDisplayString("0123456789"))
+ _     _  _     _  _  _  _  _ 
+| |  | _| _||_||_ |_   ||_||_|
+|_|  ||_  _|  | _||_|  ||_|  |
+```
+
+
+Version 1 (2022-04-01):
 
 ![](documentation/output--2022-04-01.png)
 
